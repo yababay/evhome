@@ -1,0 +1,4 @@
+- function bundleWithRoot(ext, root = bundleRoot || ''){ return `${root}/bundle.${ext}` }
+
+link(rel="stylesheet" type="text/css" href=bundleWithRoot("min.css"))
+script(src=bundleWithRoot("min.js") defer)

@@ -4,7 +4,8 @@
   "private": true,
   "description": "Please fulfill",
   "scripts": {
-    "backend": "node ./lib/index.js",
+    "dev": "npx cheburgen",
+    "backend": "npx tsc && node ./lib/index.js",
     "test": "jest",
     "build": "tsc"
   },
@@ -18,12 +19,15 @@
     "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
+    "cheburgen": "^1.4.0",
     "eslint": "^8.32.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.3",
     "rollup": "^3.19.1",
     "rollup-plugin-esbuild": "^5.0.0",
+    "sanitize.css": "^13.0.0",
+    "shortid": "^2.2.16",
     "ts-jest": "^29.0.5",
     "typescript": "^4.9.4"
   },

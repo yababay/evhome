@@ -1,0 +1,24 @@
+doctype
+html(lang="ru")
+    include ../components/head
+    body
+        include ../components/header
+        main
+            aside aside
+            .container container
+                button hide
+                script. 
+                    let isHidden = false
+                    document.querySelector('button').addEventListener('click', e => {
+                        const aside = document.querySelector('aside')
+                        if(isHidden){
+                            aside.classList.remove('hidden')
+                            aside.classList.add('shown')
+                        }
+                        else {
+                            aside.classList.remove('shown')
+                            aside.classList.add('hidden')
+                        }
+                        isHidden = !isHidden
+                    })
+        include ../components/footer
