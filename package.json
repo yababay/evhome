@@ -22,23 +22,25 @@
   "author": "",
   "devDependencies": {
     "@jest/globals": "^29.4.0",
+    "@rollup/plugin-terser": "^0.4.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/express": "^4.17.17",
     "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
-    "@types/express": "^4.17.17",
-    "@rollup/plugin-terser": "^0.4.0",
-    "@rollup/plugin-typescript": "^11.0.0",
-    "rollup": "^3.19.1",
-    "rollup-plugin-esbuild": "^5.0.0",
     "eslint": "^8.32.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.3",
+    "rollup": "^3.19.1",
+    "rollup-plugin-esbuild": "^5.0.0",
     "ts-jest": "^29.0.5",
     "typescript": "^4.9.4"
   },
   "dependencies": {
+    "@yababay67/modbus-master": "^1.0.0",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "express-ws": "^5.0.2"
   }
 }
