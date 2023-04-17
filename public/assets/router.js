@@ -12,6 +12,18 @@ function toggleSectionVisibility(section, visible){
     section.classList.remove(visible ? 'hidden' : 'shown')
 }
 
+function toggleLightbulb(link){
+    const li = link.closest('li')
+    if(li.classList.contains('lightbulb')){
+        li.classList.remove('lightbulb')
+        li.classList.add('lightbulb-fill')
+    }
+    else if(li.classList.contains('lightbulb-fill')){
+        li.classList.remove('lightbulb-fill')
+        li.classList.add('lightbulb')
+    }
+}
+
 function showRoom(id, toggle = true){
     const room = rooms.find(room => room.id === id)
     if(!room) throw 'Room is not found'
@@ -27,22 +39,14 @@ function showRoom(id, toggle = true){
             e.preventDefault()
             fetch(`/api/modbus/${node}/${coil}`)
                 .then(res => {
-                    if(!res.ok) {
+                    if(!res.ok && res.status !== 404) {
                         console.log(res.statusText)
                         throw 'Устройство неисправно.'
                     }
                     return res.text()
                 })
                 .then(txt => {
-                    const li = deviceLink.closest('li')
-                    if(li.classList.contains('lightbulb')){
-                        li.classList.remove('lightbulb')
-                        li.classList.add('lightbulb-fill')
-                    }
-                    else if(li.classList.contains('lightbulb-fill')){
-                        li.classList.remove('lightbulb-fill')
-                        li.classList.add('lightbulb')
-                    }
+                    toggleLightbulb(deviceLink)
                 })
                 .catch(err => {
                     console.log(`${err}: node ${node}, coil ${coil}`)

@@ -32,6 +32,7 @@
 
 .bi.lightbulb::before  { @include icon-background("lightbulb") }
 .bi.lightbulb-fill::before  { @include icon-background("lightbulb-fill") }
+.bi.house::before  { @include icon-background("house") }
 .bi.clock::before  { @include icon-background("clock") }
 .bi.check::before  { @include icon-background("check") }
 .bi.image::before  { @include icon-background("image") }
