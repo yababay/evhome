@@ -4,6 +4,7 @@
   "private": true,
   "description": "Please fulfill",
   "scripts": {
+    "dist": "rm -rf docs && NODE_ENV=production npx cheburgen",
     "dev": "npx cheburgen",
     "backend": "npx tsc && node ./lib/index.js",
     "test": "jest",
