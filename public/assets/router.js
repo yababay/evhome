@@ -33,7 +33,17 @@ function showRoom(id, toggle = true){
                     }
                     return res.text()
                 })
-                .then(txt => {})
+                .then(txt => {
+                    const li = deviceLink.closest('li')
+                    if(li.classList.contains('lightbulb')){
+                        li.classList.remove('lightbulb')
+                        li.classList.add('lightbulb-fill')
+                    }
+                    else if(li.classList.contains('lightbulb-fill')){
+                        li.classList.remove('lightbulb-fill')
+                        li.classList.add('lightbulb')
+                    }
+                })
                 .catch(err => {
                     console.log(`${err}: node ${node}, coil ${coil}`)
                     alertDiv.classList.remove('hidden')

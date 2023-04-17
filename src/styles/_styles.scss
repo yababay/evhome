@@ -30,7 +30,10 @@ main {
             width: 100%;
         }
         &#devices {
-            max-width: 40ch;
+            max-width: 60ch;
+            ul {
+                list-style-type: none;
+            }
         }
     }
 }
@@ -78,5 +81,14 @@ aside {
         text-align: end;
         margin-top: 1rem;
         margin-right: 1rem;
+    }
+    ul {
+        list-style-type: none;
+        li.lightbulb-fill::before {
+            color: darkolivegreen;
+        }
+        li.lightbulb::before {
+            color: darkorange;
+        }
     }
 }

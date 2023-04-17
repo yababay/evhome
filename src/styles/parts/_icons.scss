@@ -30,6 +30,8 @@
     @include icon-size("base")
 }
 
+.bi.lightbulb::before  { @include icon-background("lightbulb") }
+.bi.lightbulb-fill::before  { @include icon-background("lightbulb-fill") }
 .bi.clock::before  { @include icon-background("clock") }
 .bi.check::before  { @include icon-background("check") }
 .bi.image::before  { @include icon-background("image") }
