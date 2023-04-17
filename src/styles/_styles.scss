@@ -1,25 +1,37 @@
-$aside-width: clamp(320px, 20%, 480px);
+$aside-width: clamp(320px, calc(100vw / 5), 480px);
 $aside-sliding-speed: 1s;
+$aside-z-index: 10;
 
 main {
     min-height: var(--main-min-height);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
-    .container {
+    #container {
+        z-index: calc(#{$aside-z-index} - 1);
         width: 100%;
         height: 100%;
         position: relative;
-        button {
+        a[href="show-aside"] {
             position: absolute;
-            top: 0;
-            left: 100px;
+            top: 1rem;
+            left: 1rem;
+            font-size: smaller;
+        }
+        section {
+            max-width: 40ch;
+            margin: auto;
+            border: 1px solid silver;
+            &.hidden {
+                display: none;
+            }
+            &.shown {
+                display: block;
+            }
         }
     }
 }
 
 aside {
+    z-index: $aside-z-index;
     position: absolute;
     height: var(--main-min-height);
     background-color: silver;
@@ -35,5 +47,10 @@ aside {
     &.shown {
         margin-left: 0;
         transition-duration: $aside-sliding-speed;
+    }
+    p:nth-child(1) {
+        text-align: end;
+        margin-top: 1rem;
+        margin-right: 1rem;
     }
 }
