@@ -1,12 +1,13 @@
 header
     #brand
-        a(href="/") #{motto || title}
+        a(href="show-aside") #{roomList}
     #burger
     #links 
         .link 
             a.bi.x(href="#" title="Закрыть") 
         .link 
-            a.bi.file-earmark-check(href="/eula") EULA
+            a.bi.file-earmark-check(href="/eula" title="Пользовательское соглашение") EULA
         .link 
-            a.bi.image(href="#readme") HOWTO
-    include ../components/burger
+            a.bi.image(href="#readme" title="Инструкция") HOWTO
+    script(src="/assets/burger.js" defer) 
+

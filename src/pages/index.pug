@@ -1,39 +1,40 @@
 - var roomList = 'Список помещений'
-- var deviceList = 'Список устройств'
+- var deviceList = 'Список устройств' 
 
 doctype
 html(lang="ru")
     include ../components/head
     body
         include ../components/header
+        aside(class="hidden") 
+            p
+                a(href="hide-aside" title="Скрыть") 
+                    i.bi.x
+            h1 #{roomList}
+            ul
+            template 
+                li
+                    a(href="room" title="Показать устройства") 
+                        i.bi.full-screen
+                        span 
+                            | &nbsp;
         main
-            aside(class="hidden") 
-                p
-                    a(href="hide-aside" title="Скрыть") 
-                        i.bi.x
-                h1 #{roomList}
-                ul
-                template 
-                    li
-                        a(href="room" title="Показать устройства") 
-                            i.bi.full-screen
-                            span 
-                                | &nbsp;
-            #container 
-                template 
-                    li
-                        a(href="room" title="Показать устройства") 
-                            i.bi.full-screen
-                            span 
-                                | &nbsp;
-                a(href="show-aside") #{roomList}
-                section#devices.hidden
+            template 
+                li
+                    a(href="room" title="Показать устройства") 
+                        i.bi.full-screen
+                        span 
+                            | &nbsp;
+            section#devices.hidden
+                article
                     h1 #{deviceList}
                     ul 
-                section#readme
+            section#readme
+                article
                     :markdown(from="README.md")
+        #alert.hidden 
 
-            script(src="assets/aside.js" defer)
-            script(src="assets/rooms.js" defer)
-            script(src="assets/router.js" defer)
         include ../components/footer
+        script(src="assets/router.js" defer)
+        script(src="assets/aside.js" defer)
+        script(src="assets/rooms.js" defer)

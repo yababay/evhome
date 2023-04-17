@@ -1,43 +1,69 @@
-$aside-width: clamp(320px, calc(100vw / 5), 480px);
+$aside-width: 428px;
 $aside-sliding-speed: 1s;
 $aside-z-index: 10;
 
+template {
+    display: none;
+}
+
 main {
+    margin: 0;
+    padding: 0;
     min-height: var(--main-min-height);
     position: relative;
-    #container {
-        z-index: calc(#{$aside-z-index} - 1);
-        width: 100%;
-        height: 100%;
-        position: relative;
-        a[href="show-aside"] {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            font-size: smaller;
+    z-index: calc(#{$aside-z-index} - 1);
+    width: 100%;
+    position: relative;
+    section {
+        max-width: 80ch;
+        margin: 0 auto;
+        padding: 0;
+        &.hidden {
+            display: none;
         }
-        section {
+        &.shown {
+            display: block;
+        }
+        article {
+            margin: 0;
+            border: 0;
+            width: 100%;
+        }
+        &#devices {
             max-width: 40ch;
-            margin: auto;
-            border: 1px solid silver;
-            &.hidden {
-                display: none;
-            }
-            &.shown {
-                display: block;
-            }
         }
     }
 }
 
+#alert {
+    background-color: crimson;
+    color: pink;
+    border-radius: .5rem;
+    border: 1px solid red;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    &.hidden {
+        display: none;
+    }
+    &.shown {
+        display: block;
+    }
+}
+
 aside {
+    height: 100vh;
     z-index: $aside-z-index;
     position: absolute;
-    height: var(--main-min-height);
-    background-color: silver;
+    padding: .2rem;
+    border: 1px solid silver;
+    border-radius: .2rem;
+    background-color: whitesmoke;
     width: $aside-width;
-    margin: 0;
-    padding: 0;
+    @media screen and (max-width: calc(#{$aside-width} - 1px)) {
+        width: 100%;
+    }
     top: 0;
     left: 0;
     &.hidden {

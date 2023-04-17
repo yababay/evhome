@@ -4,14 +4,15 @@ const readmeSection = document.querySelector('#readme')
 const devicesSection = document.querySelector('#devices')
 const devicesHeader = devicesSection.querySelector('h1')
 const devicesList = devicesSection.querySelector('ul')
-const deviceTemplate = document.querySelector('#container template')
+const deviceTemplate = document.querySelector('main template')
+const alertDiv = document.querySelector('#alert')
 
 function toggleSectionVisibility(section, visible){
     section.classList.add(visible ? 'shown' : 'hidden')
     section.classList.remove(visible ? 'hidden' : 'shown')
 }
 
-function showRoom(id){
+function showRoom(id, toggle = true){
     const room = rooms.find(room => room.id === id)
     if(!room) throw 'Room is not found'
     const { title } = room
@@ -22,13 +23,29 @@ function showRoom(id){
         const { title, coil, node } = device
         const deviceItem = deviceTemplate.cloneNode(true).content
         const deviceLink = deviceItem.querySelector('a')
-        //deviceLink.addEventListener('click', showRoom)
+        deviceLink.addEventListener('click', e => {
+            e.preventDefault()
+            fetch(`/api/modbus/${node}/${coil}`)
+                .then(res => {
+                    if(!res.ok) {
+                        console.log(res.statusText)
+                        throw 'Устройство неисправно.'
+                    }
+                    return res.text()
+                })
+                .then(txt => {})
+                .catch(err => {
+                    console.log(`${err}: node ${node}, coil ${coil}`)
+                    alertDiv.classList.remove('hidden')
+                    alertDiv.textContent = err
+                    setTimeout(() => alertDiv.classList.add('hidden'), 3000)
+                })
+        })
         deviceLink.querySelector('span').textContent = title
         deviceLink.setAttribute('href', `#room-${id}`)
         devicesList.appendChild(deviceItem.querySelector('li'))
-
     })
-    toggleAside() 
+    if(toggle) toggleAside() 
 }
 
 (function setupRouter() {
@@ -44,15 +61,21 @@ function showRoom(id){
           value: document.URL,
         });
         lastURL = document.URL
-        if(lastURL.endsWith('#readme')){
+        if(lastURL && lastURL.endsWith('#readme')){
             toggleSectionVisibility(readmeSection, true)
             toggleSectionVisibility(devicesSection, false)
+            toggleBurger()
         }
         else {
+            if(!lastURL || !lastURL.includes('#')) return
             toggleSectionVisibility(readmeSection, false)
             toggleSectionVisibility(devicesSection, true)
-            const id = parseInt(/.*\#room-(\d+)$/.exec(lastURL)[1])
+            const id = idFromHash(lastURL)
             showRoom(id)
         }
     })
 })()
+
+function idFromHash(hash){
+    return parseInt(/.*\#room-(\d+)$/.exec(hash)[1])
+}
