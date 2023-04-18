@@ -32,8 +32,12 @@ header {
         font-size: var(--brand-font-size);
         &::before {
             background-image: url(images/logo.svg);
-            height: calc(var(--brand-font-size) * #{$brand-logo-height-ratio});
-            width: calc(var(--brand-font-size) * #{$brand-logo-width-ratio});
+
+            //height: calc(var(--brand-font-size) * #{$brand-logo-height-ratio});
+            //width:  calc(var(--brand-font-size) * #{$brand-logo-width-ratio});
+            height: calc(var(--header-height) * .4);
+            width:  calc(var(--header-height) * .4 * 385 / 85);
+            vertical-align: baseline;
         }
         a {
             margin: 0;
