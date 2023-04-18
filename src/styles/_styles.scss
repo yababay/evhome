@@ -37,7 +37,12 @@ main {
         }
     }
 }
-
+/*.lightbulb-glow {
+    &::before {
+        @extend .lightbulb::before;
+        background: radial-gradient(darkorange, white)
+    }
+}*/
 #alert {
     background-color: crimson;
     color: pink;

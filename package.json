@@ -4,7 +4,8 @@
   "private": true,
   "description": "Please fulfill",
   "scripts": {
-    "build": "rm -rf docs && NODE_ENV=production npx cheburgen && . ./scripts/tune.sh",
+    "build": "rm -rf docs && NODE_ENV=production npx cheburgen",
+    "push":  "npm run build && . ./scripts/tune.sh && git add . && git commit -am gh-pages && git push origin main",
     "dev": "npx cheburgen"
   },
   "keywords": [],
