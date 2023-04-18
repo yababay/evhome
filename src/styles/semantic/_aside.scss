@@ -1,0 +1,17 @@
+$aside-sliding-speed: 1s;
+
+%aside-transition {
+    transition-duration: $aside-sliding-speed;
+}
+
+aside {
+    background-color: beige;
+    &.hidden {
+        @extend %aside-transition;
+        margin-left: calc(#{$aside-width * -1});
+    }
+    &.shown {
+        @extend %aside-transition;
+        margin-left: 0;
+    }
+}
