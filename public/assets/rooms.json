@@ -29,8 +29,8 @@
         "id": 3,
         "devices": [
             {"title": "Люстра", "coil": 1, "node": 3},
-            {"title": "Кофе-машина", "coil": 2, "node": 3},
-            {"title": "Мультиварка", "coil": 3, "node": 3}
+            {"title": "Компьютер", "coil": 2, "node": 3},
+            {"title": "Ночник", "coil": 3, "node": 3}
         ]
     },
     {

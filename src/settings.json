@@ -1,15 +1,15 @@
 {
-    "keywords": "Домашняя страница",
+    "keywords": "",
     "robots": "index, follow",
-    "description": "Домашняя страница",
-    "title": "Домашняя страница",
-    "motto": "Привет, Мир!",
+    "description": "Простой вариант веб-интерфейса для умного дома",
+    "title": "EvHome: разумный дом",
+    "motto": "EvHome: разумный дом",
     "author": "Михаил Беляков",
     "og_type": "article",
-    "og_title": "Заголовок статьи или страницы",
-    "og_description": "Описание статьи или страницы",
+    "og_title": "EvHome: разумный дом",
+    "og_description": "Простой вариант веб-интерфейса для умного дома",
     "og_image": "/index.jpg",
-    "og_url": "Постоянная ссылка",
-    "og_site_name": "Имя сайта",
+    "og_url": "https://yababay.github.io/evhome",
+    "og_site_name": "EvHome: разумный дом",
     "year": 2023
 }
