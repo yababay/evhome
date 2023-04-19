@@ -8,9 +8,17 @@ $wooden-radius: .5rem;
     transition-duration: $aside-sliding-speed;
 }
 
+%list-items {
+    list-style-type: none;
+    li, li > a, li > a:visited {
+        color: $basic-dark;
+    }
+}
+
 aside {
     .wooden {
-        background-image: url("/assets/images/wooden.png");
+        background-image: url("/assets/images/wooden.webp");
+        background-size: cover;
         margin: $wooden-margin;
         padding: 0 $wooden-padding;
         border: $wooden-border solid $basic-border;
@@ -31,6 +39,9 @@ aside {
         h1 {
             @extend .text-lg;
             text-align: center;
+        }
+        ul {
+            @extend %list-items;
         }
     }
     &.hidden {

@@ -1,0 +1,39 @@
+@use 'sass:list';
+
+%icon {
+    display: inline-block;
+    vertical-align: baseline;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: ''
+}
+
+@mixin icon-size ($size) {
+    width: var(--icon-width-#{$size});
+    height: var(--icon-height-#{$size});
+}
+
+@mixin icon-background ($bg) {
+    background-image: url(icons/bi-#{$bg}.svg)
+}
+
+@for $i from 1 through length($type-steps) {
+    $step: list.nth($type-steps, $i);
+    .bi.#{$step}::before, .text-#{$step} .bi::before {
+        @extend %icon;
+        @include icon-size(#{$step})
+    }
+}
+
+:root {
+    @for $i from 1 through length($type-steps) {
+        $step: list.nth($type-steps, $i);
+        --icon-width-#{$step}:  calc(var(--line-height-#{$step}) * #{$icon-width-ratio});
+        --icon-height-#{$step}: calc(var(--line-height-#{$step}) * #{$icon-height-ratio});
+    }
+}
+
+.bi::before {
+    @extend %icon;
+    @include icon-size("base")
+}

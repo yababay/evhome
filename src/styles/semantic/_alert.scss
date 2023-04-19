@@ -1,0 +1,17 @@
+#alert {
+    z-index: calc(#{$aside-z-index} + 5);
+    background-color: crimson;
+    color: pink;
+    border-radius: .5rem;
+    border: 1px solid red;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    &.hidden {
+        display: none;
+    }
+    &.shown {
+        display: block;
+    }
+}

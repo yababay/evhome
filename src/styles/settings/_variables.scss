@@ -2,8 +2,14 @@
 @use 'sass:list';
 @use 'sass:map';
 
+$header-height: clamp(3rem, calc(100vh / 10), 4rem);
+$footer-height: calc(#{$header-height} / 1.618);
+$aside-width: 428px;
+$aside-z-index: 10;
+$others-z-index: calc(#{$aside-z-index} - 5);
+
 $basic-dark:#562516;
-$basic-border: #a95a31;
+$basic-border: #cccccc;
 
 $media-breakpoints: (
   small: 320px,
@@ -23,3 +29,4 @@ $media-breakpoints: (
 
 $default-min-bp: map.get($media-breakpoints, "mobile");
 $default-max-bp: map.get($media-breakpoints, "large");
+$burger-bp: map.get($media-breakpoints, "tablet");

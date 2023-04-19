@@ -1,3 +1,25 @@
 main {
-    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    section {
+        max-width: 80ch;
+        margin: 0 auto;
+        padding: 0;
+        &.hidden {
+            display: none;
+        }
+        &.shown {
+            display: block;
+        }
+        ul {
+            @extend %list-items;
+            margin: 2rem auto;
+            padding: 0;
+            width: fit-content;
+        }
+        h1 {
+            text-align: center;
+        }
+    }
 }

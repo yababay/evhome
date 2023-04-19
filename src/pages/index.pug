@@ -1,43 +1,9 @@
-- var roomList = 'Помещения'
-- var deviceList = 'Список устройств' 
-
 doctype
 html(lang="ru")
     include ../components/head
     body
         include ../components/header
-        aside.hidden 
-            .wooden
-                p
-                    a(href="hide-aside" title="Скрыть") 
-                        i.bi.x
-                h1 #{roomList}
-                ul
-                template 
-                    li.bi.house.md.text-md
-                        a(href="room" title="Показать устройства") 
-                            span 
-                                | &nbsp;
-        main
-            h1 main
-            //
-                template 
-                    li.md.bi.lightbulb-fill.text-md
-                        a(href="room" title="Показать устройства") 
-                            span 
-                                | &nbsp;
-                section#devices.hidden
-                    article
-                        h1 #{deviceList}
-                        ul 
-                section#readme
-                    article
-                        p ssd
-                        :markdown(from="README.md")
-            #alert.hidden 
-
+        include ../components/aside
+        include ../components/main
         include ../components/footer
-        //script(src="/assets/burger.js" defer) 
-        //script(src="/assets/router.js" defer)
-        script(src="/assets/aside.js" defer)
-        //script(src="/assets/rooms.js" defer)
+        #alert.hidden 

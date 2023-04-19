@@ -1,0 +1,14 @@
+.bi.lightbulb::before  { @include icon-background("lightbulb") }
+.bi.lightbulb-off::before  { @include icon-background("lightbulb-off") }
+.bi.lightbulb-fill::before  { @include icon-background("lightbulb-fill") }
+.bi.house::before  { @include icon-background("house") }
+.bi.clock::before  { @include icon-background("clock") }
+.bi.check::before  { @include icon-background("check") }
+.bi.image::before  { @include icon-background("image") }
+.bi.github::before { @include icon-background("github") }
+.bi.list::before   { @include icon-background("list") }
+.bi.x::before      { @include icon-background("x-lg") }
+.bi.file-earmark-check::before { @include icon-background("file-earmark-check") }
+.bi.one-two-three::before { @include icon-background("123") }
+.bi.alt::before { @include icon-background("alt") }
+.bi.arrows-fullscreen::before { @include icon-background("arrows-fullscreen") }

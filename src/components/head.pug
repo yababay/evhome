@@ -15,7 +15,6 @@ head
     link(rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg")
     link(rel="stylesheet" type="text/css" href=cssUrl)
     title #{title}
+    script(src="/assets/router.js" defer)
     if !buildId
         include ../components/watcher
-    if bundleRoot
-        include ../components/bundle
