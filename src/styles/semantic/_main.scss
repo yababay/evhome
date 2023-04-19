@@ -9,11 +9,8 @@ main {
         padding-left: 1rem;
         border: 1px #d8b67a solid;
         border-radius: .3rem;
-        @media screen and (max-width: var(--mobile-breakpoint)){
+        @media screen and (max-width: #{$default-min-bp}){
             border: 0;
-            ul {
-                min-width: var(--small-breakpoint);
-            }
         }
         &.hidden {
             display: none;
@@ -25,8 +22,7 @@ main {
             @extend %list-items;
             margin: 2rem auto;
             padding: 0;
-            width: fit-content;
-            min-width: var(--mobile-breakpoint);
+            max-width: var(--mobile-breakpoint);
             li {
                 opacity: .5;
             }

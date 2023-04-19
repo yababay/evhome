@@ -29,4 +29,4 @@ $media-breakpoints: (
 
 $default-min-bp: map.get($media-breakpoints, "mobile");
 $default-max-bp: map.get($media-breakpoints, "large");
-$burger-bp: map.get($media-breakpoints, "tablet");
+$burger-bp: map.get($media-breakpoints, "mobile");
