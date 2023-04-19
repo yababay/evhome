@@ -16,10 +16,10 @@ function toggleLightbulb(link){
     const li = link.closest('li')
     if(li.classList.contains('lightbulb')){
         li.classList.remove('lightbulb')
-        li.classList.add('lightbulb-fill')
+        li.classList.add('lightbulb-off')
     }
-    else if(li.classList.contains('lightbulb-fill')){
-        li.classList.remove('lightbulb-fill')
+    else if(li.classList.contains('lightbulb-off')){
+        li.classList.remove('lightbulb-off')
         li.classList.add('lightbulb')
     }
 }
