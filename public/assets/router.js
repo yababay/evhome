@@ -78,7 +78,7 @@ function showRoom(id, toggle = true){
         if(lastURL && lastURL.endsWith('#readme')){
             toggleSectionVisibility(readmeSection, true)
             toggleSectionVisibility(devicesSection, false)
-            toggleBurger()
+            //toggleBurger()
         }
         else {
             if(!lastURL || !lastURL.includes('#')) return
