@@ -14,13 +14,13 @@ function toggleSectionVisibility(section, visible){
 
 function toggleLightbulb(link){
     const li = link.closest('li')
-    if(li.classList.contains('lightbulb')){
-        li.classList.remove('lightbulb')
+    if(li.classList.contains('glowing')){
+        li.classList.remove('glowing')
         li.classList.add('lightbulb-off')
     }
-    else if(li.classList.contains('lightbulb-off')){
+    else {
         li.classList.remove('lightbulb-off')
-        li.classList.add('lightbulb')
+        li.classList.add('glowing')
     }
 }
 
@@ -49,6 +49,7 @@ function showRoom(id, toggle = true){
                     toggleLightbulb(deviceLink)
                 })
                 .catch(err => {
+                    toggleLightbulb(deviceLink) // remove after debug
                     console.log(`${err}: node ${node}, coil ${coil}`)
                     alertDiv.classList.remove('hidden')
                     alertDiv.textContent = err

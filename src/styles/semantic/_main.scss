@@ -5,7 +5,13 @@ main {
     section {
         max-width: 80ch;
         margin: 0 auto;
-        padding: 0;
+        padding: .3rem;
+        padding-left: 1rem;
+        border: 1px #d8b67a solid;
+        border-radius: .3rem;
+        @media screen and (max-width: var(--mobile-breakpoint)){
+            border: 0;
+        }
         &.hidden {
             display: none;
         }
@@ -17,6 +23,21 @@ main {
             margin: 2rem auto;
             padding: 0;
             width: fit-content;
+            min-width: var(--mobile-breakpoint);
+            li {
+                opacity: .5;
+            }
+            li.glowing {
+                opacity: 1;
+                span {
+                    text-shadow: 5px;
+                    color: #d8b67a;
+                    font-weight: bold;
+                }
+                &::before {
+                    background-image: url("icons/lightbulb-glowing.svg");
+                }
+            }
         }
         h1 {
             text-align: center;
