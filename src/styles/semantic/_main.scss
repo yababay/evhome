@@ -11,6 +11,9 @@ main {
         border-radius: .3rem;
         @media screen and (max-width: var(--mobile-breakpoint)){
             border: 0;
+            ul {
+                min-width: var(--small-breakpoint);
+            }
         }
         &.hidden {
             display: none;
