@@ -49,7 +49,6 @@ function showRoom(id, toggle = true){
                     toggleLightbulb(deviceLink)
                 })
                 .catch(err => {
-                    toggleLightbulb(deviceLink) // remove after debug
                     console.log(`${err}: node ${node}, coil ${coil}`)
                     alertDiv.classList.remove('hidden')
                     alertDiv.textContent = err
