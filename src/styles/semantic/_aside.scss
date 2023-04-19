@@ -1,11 +1,38 @@
 $aside-sliding-speed: 1s;
+$wooden-margin: 0rem;
+$wooden-padding: .7rem;
+$wooden-border: 2px;
+$wooden-radius: .5rem;
 
 %aside-transition {
     transition-duration: $aside-sliding-speed;
 }
 
 aside {
-    background-color: beige;
+    .wooden {
+        background-image: url("/assets/images/wooden.png");
+        margin: $wooden-margin;
+        padding: 0 $wooden-padding;
+        border: $wooden-border solid $basic-border;
+        border-radius: $wooden-radius;
+        color: $basic-dark;
+        height: calc(100vh - #{$wooden-margin} * 2 - #{$wooden-border} * 2);
+        padding-left: 0;
+        border-left: 0;
+        margin-left: calc(#{$wooden-radius} * -1);
+        p {
+            @extend .text-md;
+            text-align: right;
+            padding: 0;
+            margin: 0;
+            padding-top: .5rem;
+            direction: rtl;
+        }
+        h1 {
+            @extend .text-lg;
+            text-align: center;
+        }
+    }
     &.hidden {
         @extend %aside-transition;
         margin-left: calc(#{$aside-width * -1});

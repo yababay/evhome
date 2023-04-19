@@ -1,2 +1,47 @@
-@import
-'h1';
+@use 'sass:list';
+@use 'sass:math';
+
+$type-base: 16px;
+$type-scale: 1.2;
+$type-steps: "sm", "base", "md", "lg", "xl", "xxl", "xxxl";
+$type-base-min: 16px;
+$type-base-max: 19px;
+$type-scale-min: 1.2;
+$type-scale-max: 1.333;
+$type-base-index: list.index($type-steps, "base");
+
+$line-height-ratio: 1.42857;
+$icon-width-ratio:  .65;
+$icon-height-ratio: .5;
+
+:root {
+    @for $i from 1 through length($type-steps) {
+    $step: list.nth($type-steps, $i);
+    $power: $i - $type-base-index;
+    $min: $type-base-min * math.pow($type-scale-min, $power);
+    $max: $type-base-max * math.pow($type-scale-max, $power);
+    --font-size-#{$step}: #{clamped($min, $max)};
+    --line-height-#{$step}: calc(var(--font-size-#{$step})   * #{$line-height-ratio});
+  }
+}
+
+@mixin text-size ($size) {
+    font-size: var(--font-size-#{$size});
+    line-height: var(--line-height-#{$size});
+}
+
+@for $i from 1 through length($type-steps) {
+    $step: list.nth($type-steps, $i);
+    .text-#{$step} {
+        @include text-size(#{$step})
+    }
+}
+
+p {
+    @include text-size("base")
+}
+
+a {
+    text-decoration: none;
+    color: gray;
+}
